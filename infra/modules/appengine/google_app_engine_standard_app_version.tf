@@ -2,7 +2,7 @@ resource "google_app_engine_standard_app_version" "app" {
   service    = "default"
   version_id = "v1"
 
-  runtime = "python39"
+  runtime = "python312"
   entrypoint {
     shell = "gunicorn -b :$PORT main:app"
   }
@@ -18,4 +18,5 @@ resource "google_app_engine_standard_app_version" "app" {
       max_instances = 1
     }
   }
+  delete_service_on_destroy = true
 }

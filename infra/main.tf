@@ -13,15 +13,21 @@ provider "google" {
   zone    = var.zone
 }
 
-# iam
+# IAM
 module "iam" {
-  source                                 = "./modules/iam"
-  project_id                             = var.project_id
-  region                                 = var.region
-  compute_engine_default_service_account = var.compute_engine_default_service_account
+  source     = "./modules/iam"
+  project_id = var.project_id
+  region     = var.region
 }
 
-# strorage
+# Arifact Registry
+module "arifactregistry" {
+  source     = "./modules/artifactregistry"
+  project_id = var.project_id
+  region     = var.region
+}
+
+# Cloud Strorage
 module "storage" {
   source                = "./modules/storage"
   service_account_email = module.iam.service_account_email
