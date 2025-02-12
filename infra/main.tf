@@ -22,9 +22,10 @@ module "iam" {
 
 # Arifact Registry
 module "arifactregistry" {
-  source     = "./modules/artifactregistry"
-  project_id = var.project_id
-  region     = var.region
+  source                = "./modules/artifactregistry"
+  project_id            = var.project_id
+  region                = var.region
+  service_account_email = module.iam.service_account_email
 }
 
 # Cloud Strorage
