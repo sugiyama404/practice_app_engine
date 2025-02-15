@@ -13,6 +13,13 @@ provider "google" {
   zone    = var.zone
 }
 
+#gcp project services
+# module "gcp_project_services" {
+#   source     = "./modules/gcp_project_services"
+#   project_id = var.project_id
+#   region     = var.region
+# }
+
 # IAM
 module "iam" {
   source     = "./modules/iam"

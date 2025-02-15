@@ -1,5 +1,5 @@
 resource "google_app_engine_standard_app_version" "app" {
-  service    = "default"
+  service    = "myapp"
   version_id = "v1"
 
   runtime = "python312"
