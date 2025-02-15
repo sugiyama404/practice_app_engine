@@ -1,0 +1,7 @@
+runtime: python312
+service: myapp
+entrypoint: gunicorn -b :$PORT main:app
+
+handlers:
+  - url: /.*
+    script: auto
